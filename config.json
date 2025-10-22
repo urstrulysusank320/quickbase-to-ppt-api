@@ -1,0 +1,36 @@
+{
+  "slides": [
+    {
+      "slide_number": 1,
+      "placeholders": {
+        "{{CompanyName}}": "Lonza Visp, Switzerland",
+        "{{DateLastReview}}": "01 OCT 2025",
+        "{{Platform}}": "Pull in from COMET",
+        "{{MajorProducts}}": "Daratumumab F/F (IV & SC)",
+        "{{UpcomingInspections}}": "Unknown"
+      },
+      "tables": {},
+      "bullets": {}
+    },
+    {
+      "slide_number": 2,
+      "placeholders": {},
+      "tables": {
+        "{{OpenRisks}}": [
+          "US FDA PAI (Mar 28 - Apr 5): 8 commits; 5 closed, 3 open",
+          "Commercial Readiness: First commercial DP reveals investigation..."
+        ]
+      }
+    },
+    {
+      "slide_number": 3,
+      "placeholders": {},
+      "bullets": {
+        "{{ActionPlan}}": [
+          "Next on site visit 14OCT on site BRR",
+          "15OCT QBR"
+        ]
+      }
+    }
+  ]
+}
