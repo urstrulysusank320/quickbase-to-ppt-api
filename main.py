@@ -1,8 +1,14 @@
 from fastapi import FastAPI, Query
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse
+import requests
 import os
 
 app = FastAPI(title="QuickBase to PPT API")
+
+# Root endpoint
+@app.get("/")
+def root():
+    return {"message": "QuickBase to PPT API is running. Use /health to check status."}
 
 # Health check endpoint
 @app.get("/health")
@@ -24,10 +30,9 @@ def generate_ppt(
     """
     
     # Placeholder logic
-    # For now, it just returns JSON
     return JSONResponse(
         content={
-            "message": "Received request. Later we will convert Quickbase template to PPT.",
+            "message": "Request received. PPT conversion process will be implemented next.",
             "templateId": templateId,
             "recordId": recordId,
             "filename": filename
