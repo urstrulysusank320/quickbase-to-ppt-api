@@ -1,0 +1,47 @@
+name: Quickbase HTML to PPT
+
+on:
+  workflow_dispatch:
+    inputs:
+      html_content:
+        description: 'HTML content from Quickbase Doc Template'
+        required: true
+      output_name:
+        description: 'Output PPT file name (without extension)'
+        required: true
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Save HTML from input
+        run: |
+          echo "${{ github.event.inputs.html_content }}" > template.html
+
+      - name: Run conversion
+        run: |
+          python convert.py --html_file template.html --output_name "${{ github.event.inputs.output_name }}"
+
+      - name: Upload PPT as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: "${{ github.event.inputs.output_name }}"
+          path: "${{ github.event.inputs.output_name }}.pptx"
+
+      - name: Return artifact info
+        run: |
+          echo "PPT created: ${{ github.event.inputs.output_name }}.pptx"
